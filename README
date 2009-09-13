@@ -4,6 +4,17 @@ updated and extended version of browser dectection to be used in RAILS applicati
 besides finding out the browser and OS version, it can also return if the "user agent" is
 a bot, a mobile browser, an offline browser, etc. (still in TODO)
 
+currently you can use it like this:
+
+script/plugin install git://github.com/parasew/browser_detect.git
+
+include BrowserDetectHelper
+if (browser_is('mozilla') && browser_version>=2.0)
+  puts "yay"
+else
+  puts "oh no!"
+end
+
 *INFORMATION*
 
 see zytrax.com for a list of web browser names
