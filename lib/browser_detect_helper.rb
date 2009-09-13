@@ -56,14 +56,14 @@ module BrowserDetectHelper
   
   def browser_version
     if browser_is('ie')
-      return request.env['HTTP_USER_AGENT'].match(/^.*?MSIE ([0-9]{1}.[0-9]){1}.*?/)[1]
+      return request.env['HTTP_USER_AGENT'].match(/^.*?MSIE ([0-9]{1}.[0-9]){1}.*?/)[1].to_f
     end
     if browser_is('mozilla')
-      return request.env['HTTP_USER_AGENT'].match(/^.*?Firefox\/([0-9]{1}.[0-9]){1}.*?/)[1]
+      return request.env['HTTP_USER_AGENT'].match(/^.*?Firefox\/([0-9]{1}.[0-9]){1}.*?/)[1].to_f
     end
     if browser_is('webkit')
       # TODO: safari version extraction. plus distinction between chrome and safari.
-      return "12"
+      return "1.2".to_f
     end
   end
   
