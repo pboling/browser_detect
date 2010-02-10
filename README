@@ -6,7 +6,7 @@ a bot, a mobile browser, an offline browser, etc. (still in TODO)
 
 currently you can use it like this:
 
-script/plugin install git://github.com/parasew/browser_detect.git
+script/plugin install git://github.com/pboling/browser_detect.git
 
 include BrowserDetectHelper
 if (browser_is('mozilla') && browser_version>=2.0)
