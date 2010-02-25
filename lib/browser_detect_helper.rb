@@ -39,6 +39,13 @@ module BrowserDetectHelper
         'ie'+ua[ua.index('msie')+5].chr
       elsif ua.index('mozilla/')
         'gecko'
+      elsif ua.index('Rails')
+        'rails'
+      elsif ua.index('nagios')
+        'nagios'
+        #check_http/v2053 (nagios-plugins 1.4.13)
+      else
+        ''
       end
     
     end
