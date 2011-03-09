@@ -17,7 +17,8 @@ module BrowserDetectHelper
   def browser_name
     @browser_name ||= begin
 
-      ua = request.env['HTTP_USER_AGENT'].downcase
+      ua = ''
+      ua = request.env['HTTP_USER_AGENT'].downcase if request.env['HTTP_USER_AGENT']
       
       if ua.index('webtv')
         'webtv'
@@ -56,7 +57,8 @@ module BrowserDetectHelper
   
   def user_os_simple
     @user_os_simple ||= begin
-      ua = request.env['HTTP_USER_AGENT'].downcase
+      ua = ''
+      ua = request.env['HTTP_USER_AGENT'].downcase if request.env['HTTP_USER_AGENT']
       if ua.index('win')
         "Windows"
       elsif ua.index('linux')
@@ -83,6 +85,7 @@ module BrowserDetectHelper
   #end
   
   def browser_version
+    return 0.0 if not request.env['HTTP_USER_AGENT']
     if browser_is('ie')
       return request.env['HTTP_USER_AGENT'].match(/^.*?MSIE ([0-9]{1}.[0-9]){1}.*?/)[1].to_f
     end
