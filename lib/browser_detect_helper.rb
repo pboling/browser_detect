@@ -1,4 +1,3 @@
-
 module BrowserDetectHelper
 
   # useful method to render parts of the site only when a certain browser is detected.
@@ -87,10 +86,10 @@ module BrowserDetectHelper
   def browser_version
     return 0.0 if not request.env['HTTP_USER_AGENT']
     if browser_is('ie')
-      return request.env['HTTP_USER_AGENT'].match(/^.*?MSIE ([0-9]{1}.[0-9]){1}.*?/)[1].to_f
+      return request.env['HTTP_USER_AGENT'].match(/^.*?MSIE ([0-9]+.[0-9]){1}.*?/)[1].to_f
     end
     if browser_is('mozilla')
-      return request.env['HTTP_USER_AGENT'].match(/^.*?Firefox\/([0-9]{1}.[0-9]){1}.*?/)[1].to_f
+      return request.env['HTTP_USER_AGENT'].match(/^.*?Firefox\/([0-9]+.[0-9]){1}.*?/)[1].to_f
     end
     if browser_is('webkit')
       return request.env['HTTP_USER_AGENT'].match(/^.*?Safari\/([\d]+\.[\d]+[\.\d]*)?/)[1].to_f
